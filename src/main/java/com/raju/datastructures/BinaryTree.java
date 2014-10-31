@@ -191,6 +191,24 @@ public class BinaryTree {
 			return this.leftNode.find(data);
 		}
 	}
+	
+	public void printRightView() {
+		List<BinaryTree> list = new LinkedList<BinaryTree>();
+		list.add(this);
+		while(!list.isEmpty()) {
+			List<BinaryTree> temp = new LinkedList<BinaryTree>();
+			for (BinaryTree tree : list) {
+				if (tree.leftNode != null) {
+					temp.add(tree.leftNode);
+				} 
+				if (tree.rightNode != null){
+					temp.add(tree.rightNode);
+				}
+			}
+			System.out.println((list.get(list.size()-1).data));
+			list = temp;
+		}
+	}
 
 	public static void main(String[] args) {
 		BinaryTree root = new BinaryTree(10);
@@ -210,5 +228,8 @@ public class BinaryTree {
 		System.out.println();
 		root.remove(10);
 		root.print();
+		
+		root.printRightView();
+		
 	}
 }
