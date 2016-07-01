@@ -9,7 +9,7 @@ public class ThreadWtMultipleRunnables {
 				System.out.println("Native thread!");
 			}
 		};
-		t.start();
+		t.start();//Comment
 	}
 	
 	private static class Delegatee implements Runnable {
